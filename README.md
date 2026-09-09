@@ -1,7 +1,7 @@
 # ex603-movie-tv-database
 
-Name: Isabella Boulais
-Theme: Movie/Tv
+Name: Isabella Boulais  
+Theme: Movie/Tv  
 Description: 
 
 # To fill in
