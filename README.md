@@ -11,6 +11,10 @@ This platform allows users to discover and evaluate movies. Users cna view avail
 
 This platform will answer questions about movie characteristics such as which movies belong to a specific genre, how it is rated by other users, and how many users have rated that movie. It will also answer more in-depth questions such as what genres have the highest rated movies and which movies have gained the most ratings.
 
+## Entity Relationship Diagram
+
+![Entity-Relationship Diagram](schema/erd.png)
+
 # To fill in later:
 
 ## Schema — embed the ERD image; summarize the five roles and your key design decisions.
