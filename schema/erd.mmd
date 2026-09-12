@@ -1,0 +1,36 @@
+erDiagram
+    USERS ||--o{ RATINGS : gives
+    MOVIES ||--o{ RATINGS : receives
+    MOVIES ||--o{ MOVIE_GENRES : has
+    GENRES ||--o{ MOVIE_GENRES : categorizes
+
+    USERS {
+        int User_Id PK
+        string Username
+        string Email
+        date Date_Joined
+    }
+
+    MOVIES {
+        int Movie_Id PK
+        string Title
+        float Duration
+        date Release_Date
+    }
+
+    RATINGS {
+        int User_Id PK, FK
+        int Movie_Id PK, FK
+        float Rating
+        date Date
+    }
+
+    GENRES {
+        int Genre_Id PK
+        string Genre
+    }
+
+    MOVIE_GENRES {
+        int Movie_Id PK, FK
+        int Genre_Id PK, FK
+    }
