@@ -4,15 +4,14 @@ A platform where users can browse movies and submit their ratings.
 
 Name: Isabella Boulais  
 Theme: Movie/Tv  
-Description: This platform allows users to discover and evaluate movies. Users cna view available movies and see information such as titles, duration, release date, and average rating scored by other users on the platform. They can also explore different genres and associated movies. Users can submit or update ratings on movies, which will update the average score. 
 
-The system 
+## Domain
 
-# To fill in
+This platform allows users to discover and evaluate movies. Users cna view available movies and see information such as titles, duration, release date, and average rating scored by other users on the platform. They can also explore different genres and associated movies. Users can submit or update ratings on movies, which will update the average score. 
 
-## Project title and one-line summary — what system you modelled, in a sentence.
+This platform will answer questions about movie characteristics such as which movies belong to a specific genre, how it is rated by other users, and how many users have rated that movie. It will also answer more in-depth questions such as what genres have the highest rated movies and which movies have gained the most ratings.
 
-## The domain — your theme and the questions the platform must answer. Two to three paragraphs.
+# To fill in later:
 
 ## Schema — embed the ERD image; summarize the five roles and your key design decisions.
 
