@@ -1,8 +1,12 @@
 # ex603-movie-tv-database
 
+A platform where users can browse movies and submit their ratings. 
+
 Name: Isabella Boulais  
 Theme: Movie/Tv  
-Description: 
+Description: This platform allows users to discover and evaluate movies. Users cna view available movies and see information such as titles, duration, release date, and average rating scored by other users on the platform. They can also explore different genres and associated movies. Users can submit or update ratings on movies, which will update the average score. 
+
+The system 
 
 # To fill in
 

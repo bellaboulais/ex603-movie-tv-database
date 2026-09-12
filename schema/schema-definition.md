@@ -8,7 +8,7 @@
 
 ## Movies
 
-`Movies(Movie_Id: integer, Title: string, Duration: float, Release_Date: date)`
+`Movies(Movie_Id: integer, Title: string, Duration: float, Release_Date: date, Score: float)`
 
 - **PK:** `Movie_Id`
 

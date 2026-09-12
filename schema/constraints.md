@@ -19,12 +19,13 @@
 
 ## Movies
 
-`Movies(Movie_Id: integer, Title: string, Duration: float, Release_Date: date)`
+`Movies(Movie_Id: integer, Title: string, Duration: float, Release_Date: date, Score: float)`
 
 - Movie_Id: UNIQUE, NOT NULL
 - Title: NOT NULL
 - Duration: NOT NULL, CHECK greater than 0
 - Release_Date: NOT NULL, CHECK valid date
+- Score: CHECK NULL or greater than or equal to 0
 
 ## Ratings
 
