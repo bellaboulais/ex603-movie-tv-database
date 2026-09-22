@@ -2,52 +2,54 @@
 
 ## Primary Key Constraints
 
-- `Users.User_Id` -> UNIQUE, NOT NULL
-- `Movies.Movie_Id` -> UNIQUE, NOT NULL
-- `Ratings(User_Id, Movie_Id)` -> UNIQUE, NOT NULL
-- `Genres.Genre_Id` -> UNIQUE, NOT NULL
-- `Movie_Genres(Movie_Id, Genre_Id)` -> UNIQUE, NOT NULL
+- `users.user_id` -> UNIQUE, NOT NULL
+- `movies.movie_id` -> UNIQUE, NOT NULL
+- `ratings.rating_id` -> UNIQUE, NOT NULL
+- `genres.genre_id` -> UNIQUE, NOT NULL
+- `movie_genres(movie_id, genre_id)` -> UNIQUE, NOT NULL
 
-## Users
+## users
 
-`Users(User_Id: integer, Username: String, Email: string, Date_Joined: date)`
+`users(user_id: integer, username: string, email: string, date_joined: date)`
 
-- User_Id: UNIQUE, NOT NULL
-- Username: NOT NULL
-- Email:  UNIQUE, NOT NULL
-- Date_Joined: NOT NULL, CHECK valid date, not in the future
+- user_id: UNIQUE, NOT NULL
+- username: NOT NULL
+- email:  UNIQUE, NOT NULL
+- date_joined: NOT NULL, CHECK valid date, not in the future
 
-## Movies
+## movies
 
-`Movies(Movie_Id: integer, Title: string, Duration: float, Release_Date: date, Score: float)`
+`movies(movie_id: integer, title: string, duration_min: integer, release_date: date)`
 
-- Movie_Id: UNIQUE, NOT NULL
-- Title: NOT NULL
-- Duration: NOT NULL, CHECK greater than 0
-- Release_Date: NOT NULL, CHECK valid date
-- Score: CHECK NULL or greater than or equal to 0
+- movie_id: UNIQUE, NOT NULL
+- title: NOT NULL
+- duration: NOT NULL, CHECK greater than 0
+- release_date: NOT NULL, CHECK valid date
 
-## Ratings
+## ratings
 
-`Ratings(User_Id: integer, Movie_Id: integer, Rating: float, Date: date)`
+`ratings(rating_id: integer, user_id: integer, movie_id: integer, rating: float, comment: string, date: date)`
 
-- (User_Id, Movie_Id): UNIQUE, NOT NULL
-- Rating: NOT NULL, CHECK between 0.0 and 5.0
-- Date: NOT_NULL, CHECK valid date, not in the future
-- FK User_Id: ON DELETE CASCADE
-- FK Movie_Id: ON DELETE CASCADE
+- rating_id: UNIQUE, NOT NULL
+- user_id: NOT NULL
+- movie_id: NOT NULL
+- (user_id, movie_id): UNIQUE, NOT NULL
+- rating: NOT NULL, CHECK between 0.0 and 5.0
+- date: NOT_NULL, CHECK valid date, not in the future
+- FK user_id: ON DELETE CASCADE
+- FK movie_id: ON DELETE CASCADE
 
-## Genres
+## genres
 
-`Genres(Genre_Id: integer, Genre: string)`
+`genres(genre_id: integer, genre: string)`
 
-- Genre_Id: UNIQUE, NOT NULL
-- Genre: UNIQUE, NOT NULL
+- genre_id: UNIQUE, NOT NULL
+- genre: UNIQUE, NOT NULL
 
-## Movie_Genres
+## movie_genres
 
-`Movie_Genres(Movie_Id: integer, Genre_Id: integer)`
+`movie_genres(movie_id: integer, genre_id: integer)`
 
-- (Movie_Id, Genre_Id): UNIQUE, NOT NULL
-- FK Movie_Id: ON DELETE CASCADE
-- FK Genre_Id: ON DELETE CASCADE
+- (movie_id, genre_id): UNIQUE, NOT NULL
+- FK movie_id: ON DELETE CASCADE
+- FK genre_id: ON DELETE CASCADE

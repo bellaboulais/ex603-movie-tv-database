@@ -1,35 +1,35 @@
 # Schema Definition
 
-## Users
+## users
 
-`Users(User_Id: integer, Username: string, Email: string, Date_Joined: date)`
+`users(user_id: integer, username: string, email: string, date_joined: date)`
 
-- **PK:** `User_Id`
+- **PK:** `user_id`
 
-## Movies
+## movies
 
-`Movies(Movie_Id: integer, Title: string, Duration: float, Release_Date: date, Score: float)`
+`movies(movie_id: integer, title: string, duration_min: integer, release_date: date)`
 
-- **PK:** `Movie_Id`
+- **PK:** `movie_id`
 
-## Ratings
+## ratings
 
-`Ratings(User_Id: integer, Movie_Id: integer, Rating: float, Date: date)`
+`ratings(rating_id: integer, user_id: integer, movie_id: integer, rating: float, comment: string, date: date)`
 
-- **PK:** `(User_Id, Movie_Id)`
-- **FK:** `User_Id → Users(User_Id)`
-- **FK:** `Movie_Id → Movies(Movie_Id)`
+- **PK:** `rating_id`
+- **FK:** `user_id → users(user_id)`
+- **FK:** `movie_id → movies(movie_id)`
 
-## Genres
+## genres
 
-`Genres(Genre_Id: integer, Genre: string)`
+`genres(genre_id: integer, genre: string)`
 
-- **PK:** `Genre_Id`
+- **PK:** `genre_id`
 
-## Movie_Genres
+## movie_genres
 
-`Movie_Genres(Movie_Id: integer, Genre_Id: integer)`
+`movie_genres(movie_id: integer, genre_id: integer)`
 
-- **PK:** `(Movie_Id, Genre_Id)`
-- **FK:** `Movie_Id → Movies(Movie_Id)`
-- **FK:** `Genre_Id → Genres(Genre_Id)`
+- **PK:** `(movie_id, genre_id)`
+- **FK:** `movie_id → movies(movie_id)`
+- **FK:** `genre_id → genres(genre_id)`

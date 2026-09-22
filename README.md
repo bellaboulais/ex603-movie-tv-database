@@ -15,9 +15,10 @@ This platform will answer questions about movie characteristics such as which mo
 
 ![Entity-Relationship Diagram](schema/erd.png)
 
-# To fill in later:
 
-## Schema — embed the ERD image; summarize the five roles and your key design decisions.
+## Schema — summarize the five roles and your key design decisions.
+
+# To fill in later:
 
 ## Query catalogue — per unit, a short table listing the queries and the business question each answers, linked to the .sql files.
 

@@ -1,37 +1,38 @@
 erDiagram
-    USERS ||--o{ RATINGS : gives
-    MOVIES ||--o{ RATINGS : receives
-    MOVIES ||--o{ MOVIE_GENRES : has
-    GENRES ||--o{ MOVIE_GENRES : categorizes
+    users ||--o{ ratings : gives
+    movies ||--o{ ratings : receives
+    movies ||--o{ movie_genres : has
+    genres ||--o{ movie_genres : categorizes
 
-    USERS {
-        int User_Id PK
-        string Username
-        string Email
-        date Date_Joined
+    users {
+        int user_id PK
+        string username
+        string email
+        date date_joined
     }
 
-    MOVIES {
-        int Movie_Id PK
-        string Title
-        float Duration
-        date Release_Date
-        float Score
+    movies {
+        int movie_id PK
+        string title
+        int duration_min
+        date release_date
     }
 
-    RATINGS {
-        int User_Id PK, FK
-        int Movie_Id PK, FK
-        float Rating
-        date Date
+    ratings {
+        int rating_id PK
+        int user_id FK
+        int movie_id FK
+        float rating
+        string comment
+        date date
     }
 
-    GENRES {
-        int Genre_Id PK
-        string Genre
+    genres {
+        int genre_id PK
+        string genre
     }
 
-    MOVIE_GENRES {
-        int Movie_Id PK, FK
-        int Genre_Id PK, FK
+    movie_genres {
+        int movie_id PK, FK
+        int genre_id PK, FK
     }
