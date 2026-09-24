@@ -15,8 +15,11 @@ This platform will answer questions about movie characteristics such as which mo
 
 ![Entity-Relationship Diagram](schema/erd.png)
 
-
 ## Schema — summarize the five roles and your key design decisions.
+
+The 5 roles are: users, movies, ratings, genres, and movie_genres. Users holds account information such as username, email, and date joined. Movies holds data unique to the movie such as title, duration, and release date. The ratings table connects a user to the movie they rate with foreign keys for user_id and movie_id as well as the actual rating value. The genres table holds the genre names from a pre-determined list of available genre titles. Lastly, the movie_genres defines the relationship between a movie and its genres with a foreign key for the genre_id and movie_id. 
+
+I decided to delete a users rating when their user account is deleted to respect data privacy and ensure integrity. If a user recereates their account and makes a rating on a movie they rated on their old account, this allows 1 user to have multiple ratings for a movie, which violates the rule that one user can rate a movie once, enforced by the UNIQUE(user_id, movie_id) constraint. Additionally, I decided to add a check on the genre name and create a predefined list of valid names. This ensures we are able to accurately search the database for movie genres and we won't miss data because of misspellings or abbreviations. 
 
 # To fill in later:
 
