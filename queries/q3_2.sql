@@ -1,0 +1,1 @@
+-- Task 3.2 — the broken query, the count of what it dropped, and the repair. 
