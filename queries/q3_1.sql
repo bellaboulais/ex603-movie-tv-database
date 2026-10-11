@@ -2,7 +2,7 @@
 
 -- 1. Find active movies released after 2015. Requirements: SELECT, JOIN,
 -- WHERE, GROUP BY, ORDER BY, LIMIT
-SELECT m.movie_id, m.title, release_year
+SELECT movie_id, title, release_year
 FROM movies
 WHERE is_available = 1
   AND release_year > 2015
