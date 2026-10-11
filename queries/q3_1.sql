@@ -4,7 +4,7 @@
 -- WHERE, GROUP BY, ORDER BY, LIMIT
 SELECT movie_id, title, release_year
 FROM movies
-WHERE is_available = 1
+WHERE is_available = TRUE
   AND release_year > 2015
 ORDER BY release_year DESC, title
 LIMIT 10;

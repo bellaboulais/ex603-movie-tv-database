@@ -25,6 +25,12 @@ WHERE withdrawn_reason <> 'Spam detected'
 
 -- Part B: The alias that did not exist yet
 
+-- Failing query with alias: 
+-- SELECT rating_id, score * weight AS weighted_score
+-- FROM ratings
+-- WHERE weighted_score > 4;
+-- Error: Unable to resolve column 'weighted_score'
+
 -- 1. Repeat expression in WHERE.
 SELECT rating_id, score, weight, score * weight AS weighted_score
 FROM ratings
