@@ -1,14 +1,12 @@
 -- Task 3.1 — all exploration queries, each under a numbered comment header. 
 
--- 1. Find active, highly rated movies. Requirements: SELECT, JOIN, WHERE,
--- GROUP BY, ORDER BY, LIMIT
-SELECT m.movie_id, m.title, AVG(r.score) AS avg_rating
-FROM movies AS m
-JOIN ratings AS r ON r.movie_id = m.movie_id
-WHERE m.is_available = TRUE
-  AND r.rating_status = 'published'
-GROUP BY m.movie_id, m.title
-ORDER BY avg_rating DESC, m.title
+-- 1. Find active movies released after 2015. Requirements: SELECT, JOIN,
+-- WHERE, GROUP BY, ORDER BY, LIMIT
+SELECT m.movie_id, m.title, release_year
+FROM movies
+WHERE is_available = 1
+  AND release_year > 2015
+ORDER BY release_year DESC, title
 LIMIT 10;
 
 -- 2. Find all possible rating statuses. I did not expect the flagged status. 
