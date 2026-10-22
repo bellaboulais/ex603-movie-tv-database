@@ -5,10 +5,10 @@
 -- Target: PostgreSQL 14+
 -- ============================================================================
 -- Reset. Reverse creation order, so no dependency blocks a drop.
-DROP TABLE IF EXISTS genres         CASCADE;
 DROP TABLE IF EXISTS movie_genres   CASCADE;
-DROP TABLE IF EXISTS movies         CASCADE;
+DROP TABLE IF EXISTS genres         CASCADE;
 DROP TABLE IF EXISTS ratings        CASCADE;
+DROP TABLE IF EXISTS movies         CASCADE;
 DROP TABLE IF EXISTS users          CASCADE;
 
 -- ----------------------------------------------------------------------------
@@ -60,66 +60,7 @@ CREATE TABLE genres
 (
     genre_id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     genre    VARCHAR(100) UNIQUE NOT NULL,
-    CONSTRAINT chk_valid_genre
-        CHECK (genre in ('Action','Adventure','Adult Animation','Animation',
-                         'Anime','Biography','Comedy','Crime','Documentary',
-                         'Drama','Family','Fantasy','Game Show','History',
-                         'Horror','Independent','International','LGBTQ+',
-                         'Music','Musical','Mystery','Reality TV','Romance',
-                         'Science Fiction','Short','Sports','Stand-Up Comedy',
-                         'Talk Show','Thriller','True Crime','War','Western',
-                         'Action Adventure','Action Comedy','Action Epic',
-                         'Action Thriller','Alien Sci-Fi','Animal Tales',
-                         'Art House','Backstage Musical','B-Horror',
-                         'Biographical Documentary','Black Comedy',
-                         'Body Horror','British Reality','Buddy Comedy',
-                         'CGI Animation','Chilling Horror','Classic Movies',
-                         'Claymation','Coming-of-Age','Conspiracy Thriller',
-                         'Contemporary Fantasy','Contemporary Romance',
-                         'Cosmic Horror','Courtroom Drama','Cozy Mystery',
-                         'Crime Action','Crime Documentary','Crime Drama',
-                         'Crime Thriller','Cyberpunk','Dark Comedy',
-                         'Dark Fantasy','Dark Romance','Detective','Disaster',
-                         'Docuseries','Domestic Drama','Dystopian',
-                         'Dystopian Sci-Fi','Epic','Epic Fantasy',
-                         'Erotic Thriller','Experimental','Family Drama',
-                         'Fantasy Movie','Fantasy Sci-Fi','Film-Noir',
-                         'Folk Horror','Food & Travel','Foreign Documentaries',
-                         'Found Footage','Gallows Humor','Gothic Horror',
-                         'Heist','High Fantasy','Historical Drama',
-                         'Historical Romance','Historical War','Home Invasion',
-                         'Hospital Drama','Independent Drama',
-                         'Intergenerational','Jukebox Musical','Kids Animation',
-                         'Legal Thriller','Lifestyle','Magical Realism',
-                         'Martial Arts','Medical Drama','Melodrama','Military',
-                         'Military Documentary','Military Sci-Fi',
-                         'Mockumentary','Monster Movie',
-                         'Multi-Timeline Narrative','Mythology & Folk Tale',
-                         'Neo-Noir','Non-Linear Narrative','Occult',
-                         'One-Person Army Action','Paranormal Romance','Parody',
-                         'Period Drama','Period Piece','Physical Danger',
-                         'Police Procedural','Political Drama',
-                         'Political Western','Pop-Culture Satire',
-                         'Post-Apocalyptic','Psychological Drama',
-                         'Psychological Horror','Psychological Thriller',
-                         'Raunchy Comedy','Revenge Thriller',
-                         'Revisionist Western','Romantic Comedy',
-                         'Romantic Drama','Satire','Sci-Fi Adventure',
-                         'Sci-Fi Horror','Sci-Fi Thriller','Screwball Comedy',
-                         'Serial Killer','Sitcom','Sketch Comedy','Slasher',
-                         'Social Drama','Southern Gothic','Space Opera',
-                         'Space Western','Spaghetti Western','Splatter',
-                         'Sports Documentary','Sports Drama','Stage Musical',
-                         'Steampunk','Steamy Romance','Steamy Thriller',
-                         'Supernatural Horror','Supernatural Mystery',
-                         'Superhero','Survival Adventure','Survival Horror',
-                         'Surgical Interns','Swashbuckler','Tech Noir',
-                         'Techno-Paranoia','Techno-Thriller','Teen Comedies',
-                         'Teen Drama','Teen Screams','Teen TV','Time Travel',
-                         'Traditional Animation','True Crime Parody',
-                         'Urban Fantasy','Vigilante Justice','Virtual Reality',
-                         'Webnovel Adaptation','Whodunit',
-                         'Witchcraft & Dark Arts','Workplace Comedy','Zombie'))
+    subgenre TEXT[]
 );
 -- ----------------------------------------------------------------------------
 -- 5. movie_genres — fifth, because it references movies and genres

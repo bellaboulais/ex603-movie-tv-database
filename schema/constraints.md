@@ -41,10 +41,11 @@
 
 ## genres
 
-`genres(genre_id: integer, genre: string)`
+`genres(genre_id: integer, genre: string, subgenre: string[])`
 
 - genre_id: UNIQUE, NOT NULL
 - genre: UNIQUE, NOT NULL
+- subgenre: optional list of subgenre names
 
 ## movie_genres
 

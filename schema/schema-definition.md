@@ -22,7 +22,7 @@
 
 ## genres
 
-`genres(genre_id: integer, genre: string)`
+`genres(genre_id: integer, genre: string, subgenre: string[])`
 
 - **PK:** `genre_id`
 
