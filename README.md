@@ -23,7 +23,111 @@ I decided to delete a users rating when their user account is deleted to respect
 
 # To fill in later:
 
-## Query catalogue — per unit, a short table listing the queries and the business question each answers, linked to the .sql files.
+## Query catalogue
+
+#### 4.1.1
+
+What are the overall rating count, score total, average, minimum, maximum, and number of distinct users? ([query file](queries/unit4/q4_1.sql))
+
+```sql
+SELECT COUNT(*) AS count_ratings,
+       SUM(score) AS total,
+       AVG(score) AS average,
+       MIN(score) AS minimum,
+       MAX(score) AS maximum,
+       COUNT(DISTINCT user_id) AS count_users
+FROM ratings;
+```
+
+#### 4.1.2
+
+Which movies receive the most ratings, and what is each movie's average score? ([query file](queries/unit4/q4_1.sql))
+
+```sql
+SELECT movie_id,
+       COUNT(*) AS ratings_count,
+       ROUND(AVG(score), 2) AS average_score
+FROM ratings
+GROUP BY movie_id
+ORDER BY ratings_count DESC;
+```
+
+#### 4.1.3
+
+Which movies have more than 15 ratings, and what are their average scores? ([query file](queries/unit4/q4_1.sql))
+
+```sql
+SELECT movie_id,
+       COUNT(*) AS ratings_count,
+       ROUND(AVG(score), 2) AS average_score
+FROM ratings
+GROUP BY movie_id
+HAVING COUNT(*) > 15
+ORDER BY ratings_count DESC;
+```
+
+#### 4.1.4
+
+How do rating volume and score summaries vary by movie and user region? ([query file](queries/unit4/q4_1.sql))
+
+```sql
+SELECT movie_id,
+       device_country AS region,
+       COUNT(*) AS ratings_count,
+       ROUND(AVG(score), 2) AS average_score,
+       MIN(score) AS minimum_score,
+       MAX(score) AS maximum_score,
+       COUNT(DISTINCT user_id) AS distinct_users
+FROM ratings
+GROUP BY movie_id, device_country;
+```
+
+#### 4.2 Part A
+
+For each movie, how many ratings are there, and how many were withdrawn? ([query file](queries/unit4/q4_2.sql))
+
+```sql
+SELECT movie_id,
+       COUNT(*) AS ratings_count,
+       SUM(CASE WHEN rating_status = 'withdrawn' THEN 1 ELSE 0 END) AS failure_count
+FROM ratings
+GROUP BY movie_id
+ORDER BY failure_count DESC, movie_id;
+```
+
+#### 4.2 Part B
+
+How many ratings come from each region, and what is the platform-wide total? ([query file](queries/unit4/q4_2.sql))
+
+```sql
+SELECT device_country AS region,
+       COUNT(*) AS ratings_count
+FROM ratings
+GROUP BY ROLLUP (device_country)
+ORDER BY device_country NULLS LAST;
+```
+
+#### 4.2 Part C
+
+Which movies have more distinct rating users than the average across movies? ([query file](queries/unit4/q4_2.sql))
+
+```sql
+WITH movie_user_counts AS (
+    SELECT movie_id,
+           COUNT(DISTINCT user_id) AS distinct_ratings
+    FROM ratings
+    GROUP BY movie_id
+),
+summary AS (
+    SELECT AVG(distinct_ratings) AS avg_ratings
+    FROM movie_user_counts
+)
+SELECT m.movie_id,
+       m.distinct_ratings
+FROM movie_user_counts AS m
+CROSS JOIN summary AS s
+WHERE m.distinct_ratings > s.avg_ratings;
+```
 
 ## Technical highlights — three to five things a reader should notice.
 

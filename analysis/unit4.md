@@ -19,3 +19,9 @@ The reader who would need the subtotals per region would be the Leadership and t
 ### For Part C, state the question the pipeline answers.
 
 The pipeline answers the question which movies have a higher-than-average number of ratings by distinct users. 
+
+## Reflection (150–250 words)
+
+#### Conditional aggregation computes several answers in one pass over the data. Contrast that with running two separate filtered queries. At a million rows, why does the difference matter?
+
+Conditional aggregation combines several calculations into a single query, meaning the database only needs one pass through to calculate multiple answers. For example, my query to find the total ratings and ratings that were withdrawn can be combined into a single select statement such as “SELECT COUNT(*), SUM(CASE WHEN rating_status = ‘withdrawn’ THEN 1 ELSE 0 END)”. At each row, it calculates both the count and the sum. With two separate queries, we would first pass through the database to calculate COUNT(*), and then we would have to do a second pass to calculate the SUM(...). With just 2 calculations, there is not much performance difference between a conditional aggregation statement vs multiple queries. At a million rows, this can add unnecessary processing time and decrease the efficiency of your system, because you would have to pass through a million rows of the database twice. For large datasets, it is better to use conditional aggregation, in order to simplify the query and reduce DB passes as much as possible. 
