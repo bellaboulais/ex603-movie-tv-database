@@ -34,11 +34,21 @@ Leadership could investigate that if a rating is made on those producers that th
 
 1. Give an example of when a Cartesian product could be useful on your platform, or explain why you would not need one.
 
+It could pair every user with every movie to create a test matrix. It is only useful when all combinations are wanted.
+
 2. Which join algorithms did PostgreSQL choose for your query?
+
+PostgreSQL used a Hash Join for users and ratings, then a Nested Loop to find matching movies.
 
 3. What information in the execution plan helps explain those choices?
 
+The plan scanned 200 ratings and 30 users, built a small hash table for users, and used the movie primary-key index. Memoize reused movie lookups, with 187 hits and 13 misses.
+
 4. Why is it useful to understand the selected join algorithms?
+
+It helps explain query performance and identify what could slow down as the data grows.
 
 5. What changes to the data or database might make another join algorithm more appropriate?
 Support your explanation with observations from your execution plan.
+
+With many more ratings, a hash join may be more efficient than repeated nested-loop lookups. The current plan uses a Nested Loop with an indexed movie lookup and Memoize, which works well here because there are only 13 distinct movie IDs among 200 ratings.
