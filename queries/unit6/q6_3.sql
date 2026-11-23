@@ -1,7 +1,12 @@
 /* 
 Task 6.3: Build the reporting patterns
 Two patterns you will meet in nearly every analytics job.
-
+actor = users
+producer = movies
+events = ratings
+catalogue = genres
+junction = movie_genres
+metric = rating
 
 
 Part A: Top N per category

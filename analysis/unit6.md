@@ -8,15 +8,23 @@ Are there a significant number of outlier ratings that are not represented by th
 
 A platform feature that would utilize ranking would be showing the most rated (which could imply most watched) movies on the platform as highlights and suggested movies. I would use RANK() so that ties get the same rank number, but the ranks skip after ties. For example, if the fourth rank position has 2 movies in it, the next rank position is 6 instead of 5. I would use this over DENSE_RANK() that doesn't skip positions, because if a ranking count changes and the second movie, for example, becomes rank 5, the other rankings don't get shifted as well which can help maintain clarity and consistency in the leaderboard. 
 
-
 ## 6.2 
+
 1. What would a large delta tell someone about your platform, and what should they do about it?
+
+A large change between consecutive ratings for a movie could reflect a rapid shift in user opinion or a recording error. I would review the ratings and comments around the change and check the data for errors.
 
 2. Why does a running total answer a question that a plain SUM cannot?
 
+A running total shows how rating points accumulate over time and when the platform reaches its target. A plain `SUM` gives only the final total, not the progress or when the target was reached.
+
 3. Why did you pick your moving-average window size? A different size tells a different story.
 
+I used the most recent seven ratings to smooth individual fluctuations while still responding to recent changes. A shorter window would be more reactive, while a longer one would smooth the recent chanegs more.
+
 4. What does a gap mean in your platform: a data quality problem, a real stop in activity, or a side effect of how events were recorded? Each needs a different response. Say which one yours is and how you know.
+
+The query finds gaps longer than 50 days between ratings for a movie, so I would describe this as a pause in recorded activity. I would look at logs of the system to determine whether ratings were missing or the movie became unavailable to rate.
 
 ## 6.3 
 
