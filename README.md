@@ -7,7 +7,7 @@ Theme: Movie/Tv
 
 ## Domain
 
-This platform allows users to discover and evaluate movies. Users cna view available movies and see information such as titles, duration, release date, and average rating scored by other users on the platform. They can also explore different genres and associated movies. Users can submit or update ratings on movies, which will update the average score. 
+This platform allows users to discover and evaluate movies. Users can view available movies and see information such as titles, duration, release date, and average rating scored by other users on the platform. They can also explore different genres and associated movies. Users can submit or update ratings on movies, which will update the average score. 
 
 This platform will answer questions about movie characteristics such as which movies belong to a specific genre, how it is rated by other users, and how many users have rated that movie. It will also answer more in-depth questions such as what genres have the highest rated movies and which movies have gained the most ratings.
 
@@ -163,7 +163,9 @@ Future work should add a monthly withdrawal-status field, user activity data, an
 
 ## Video presentation 
 
-Video presentation link: [Add presentation link here].
+Video presentation link: 
+
+https://bostonu.zoom.us/rec/share/RcjuSpFXZcSGE2GFDgAwWNYCEvYWNjvQZpBV0nF7VEY-OAQr448M5iNjtNPvUfYV.jVvAqorAkqrwPL3j 
 
 ## How to run it
 
