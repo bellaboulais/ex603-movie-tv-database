@@ -93,10 +93,6 @@ SELECT month,
                / NULLIF(prev_avg, 0),
                2
            )
-       END AS percent_change,
-       COALESCE(
-           month > (prev_month + INTERVAL '1 month')::date,
-           FALSE
-       ) AS missing_month_before
+           END AS percent_change
 FROM month_comparison
 ORDER BY month;
