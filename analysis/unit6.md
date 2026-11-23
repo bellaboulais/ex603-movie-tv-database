@@ -37,4 +37,9 @@ A top-three feature could power a "best ratings" section on each movie’s page.
 A large increase could mean a movie or the platform is receiving better user ratings, while a large decrease could indicate poor reception or a data issue. We should investigate the most-rated or lowest-rated movies from that month and compare them with releases or marketing campaigns.
 
 ## Reflection (150–250 words)
+
 Write this at the end of /analysis/unit6.md. Window functions keep rows; aggregates collapse them. Describe a reporting question in your theme that is easy with a window function but awkward or impossible with GROUP BY alone. Explain why.
+
+A reporting question might ask, “Which specific ratings are unusually high or low for the movie they belong to?” The window function keeps every rating, user, and rating date while placing the movie average beside each value. This allows the platform to investigate unusual ratings and determine whether they come from an unusual reviewer, a recent change in audience opinion, or a possible data issue.
+
+A `GROUP BY` query can calculate the average for each movie, but it collapses all of that movie’s ratings into one row. It cannot show how an individual rating compares to the average or retain the `rating_id`, `user_id`, and date needed for further analysis. Although `GROUP BY` is useful for final totals and summaries, it is awkward for individual-to-group comparisons because each original row is needed. For example, the team could identify a rating that is much higher than its movie’s average and then review that user’s comments. It could also rank the highest ratings or compare the rating with the next rating in time. 

@@ -48,7 +48,7 @@ How is the platform doing over time, both in total and on a recent average?
 
    Target: 600 total rating points.
 
-   In a tie, ROWS means the tied row(s) will include the tied row before it, so 
+   Using ROWS means the tied row(s) will include the tied row before it, so 
    the running totals differ. Tied rows with RANGE includes each other in the 
    frame, so they share the same running total.
 */
