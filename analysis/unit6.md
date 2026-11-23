@@ -29,7 +29,12 @@ The query finds gaps longer than 50 days between ratings for a movie, so I would
 ## 6.3 
 
 1. Name the feature in your platform that top-N would power. Explain why three is the right number, rather than one or ten.
+
+A top-three feature could power a "best ratings" section on each movie’s page. Three is more useful than one because it shows a small range of positive feedback. 10 could overwhelm users and cause them to ignore the feature altogether. 
+
 2. What would a large month-over-month change mean in your domain, and what should someone do about it? A number nobody acts on is not a metric.
+
+A large increase could mean a movie or the platform is receiving better user ratings, while a large decrease could indicate poor reception or a data issue. We should investigate the most-rated or lowest-rated movies from that month and compare them with releases or marketing campaigns.
 
 ## Reflection (150–250 words)
 Write this at the end of /analysis/unit6.md. Window functions keep rows; aggregates collapse them. Describe a reporting question in your theme that is easy with a window function but awkward or impossible with GROUP BY alone. Explain why.
